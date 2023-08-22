@@ -36,7 +36,8 @@
 %-------------------------------------------------------------------------------
 %                required packages
 %-------------------------------------------------------------------------------
-
+% if... then... else... constructs
+\RequirePackage{ifthen}
 
 %-------------------------------------------------------------------------------
 %                overall head definition
@@ -74,8 +75,27 @@
     \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
       \protected@edef\phonesdetails{\phonesdetails\protect\makenewline\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}}%
     \def\socialsdetails{}%
-    \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
-      \protected@edef\socialsdetails{\socialsdetails\protect\makenewline\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem}}%
+    \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the username
+      \protected@edef\socialsdetails{\socialsdetails\protect\makenewline
+          %TODO: How to handle socials without URL? \ifthenelse and \collectionfindbykey have problems
+
+          % With \ifthenelse template.tex comipiling throws error:
+          % Illegal parameter number in definition of \socialsdetails. \makecvtitle
+          %%%\ifthenelse{\equal{\collectiongetitem{socialURLs}{\collectionloopid}}{NOURL}}
+          {
+            %Without URL
+            %%%\protect\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem
+          } {
+            %With URL
+            %TODO: How to expand the URL from socialURLs collection?
+            \protect\httpslink[\protect\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem]{\collectiongetitem{socialURLs}{\collectionloopid}}
+          }%
+
+          % With \collectionfindbykey if would be possible to avoide to save "NOURL" items.
+          % PROBLEM: The command doesn't work within the \collectionloop. Maybe because it contains a loop it self?
+          % Uncomment the following line to test the command. (Actual empty result of the command)
+          %%%URL-TEST: \collectionfindbykey{socialURLs}{\collectionloopkey}
+      }}%
     \savebox{\makecvheaddetailsbox}{%
       \addressfont\color{color2}%
       \if@left\begin{tabular}[b]{@{}r@{}}\fi%
