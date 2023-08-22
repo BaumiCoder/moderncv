@@ -289,39 +289,68 @@
 % - "playstation"
 % - "battlenet"
 \collectionnew{socials}
+\collectionnew{socialURLs}
 \NewDocumentCommand{\social}{O{}O{}m}{%
   \ifthenelse{\equal{#2}{}}%
     {%
-      \ifthenelse{\equal{#1}{linkedin}}     {\collectionadd[linkedin]{socials}     {\protect\httpslink[#3]{www.linkedin.com/in/#3}}}               {}%
-      \ifthenelse{\equal{#1}{xing}}         {\collectionadd[xing]{socials}         {\protect\httpslink[#3]{www.xing.com/profile/#3}}}              {}%
-      \ifthenelse{\equal{#1}{twitter}}      {\collectionadd[twitter]{socials}      {\protect\httpslink[#3]{twitter.com/#3}}}                       {}%
-      \ifthenelse{\equal{#1}{mastodon}}     {\collectionadd[mastodon]{socials}     {\protect\httpslink[#3]{#3}}}                                   {}%
-      \ifthenelse{\equal{#1}{github}}       {\collectionadd[github]{socials}       {\protect\httpslink[#3]{github.com/#3}}}                        {}%
-      \ifthenelse{\equal{#1}{gitlab}}       {\collectionadd[gitlab]{socials}       {\protect\httpslink[#3]{gitlab.com/#3}}}                        {}%
-      \ifthenelse{\equal{#1}{stackoverflow}}{\collectionadd[stackoverflow]{socials}{\protect\httpslink[#3]{stackoverflow.com/users/#3}}}           {}%
-      \ifthenelse{\equal{#1}{bitbucket}}    {\collectionadd[bitbucket]{socials}    {\protect\httpslink[#3]{bitbucket.org/#3}}}                     {}%
-      \ifthenelse{\equal{#1}{skype}}        {\collectionadd[skype]{socials}        {#3}}                                                           {}%
-      \ifthenelse{\equal{#1}{orcid}}        {\collectionadd[orcid]{socials}        {\protect\httpslink[#3]{orcid.org/#3}}}                         {}%
-      \ifthenelse{\equal{#1}{researchgate}} {\collectionadd[researchgate]{socials} {\protect\httpslink[#3]{www.researchgate.net/profile/#3}}}      {}%
-      \ifthenelse{\equal{#1}{researcherid}} {\collectionadd[researcherid]{socials} {\protect\httpslink[#3]{www.researcherid.com/rid/#3}}}          {}%
-      \ifthenelse{\equal{#1}{telegram}}     {\collectionadd[telegram]{socials}     {\protect\httpslink[#3]{t.me/#3}}}                              {}%
-      \ifthenelse{\equal{#1}{whatsapp}}     {\collectionadd[whatsapp]{socials}     {\protect\httpslink[#3]{wa.me/#3}}}                             {}%
-      \ifthenelse{\equal{#1}{signal}}       {\collectionadd[signal]{socials}       {#3}}                                                           {}%
-      \ifthenelse{\equal{#1}{matrix}}       {\collectionadd[matrix]{socials}       {\httpslink[#3]{matrix.to/\#/#3}}}                              {}%
-      \ifthenelse{\equal{#1}{googlescholar}}{\collectionadd[googlescholar]{socials}{\protect\httpslink[#3]{scholar.google.com/citations?user=#3}}} {}%
-      \ifthenelse{\equal{#1}{codeberg}}     {\collectionadd[codeberg]{socials}     {\protect\httpslink[#3]{codeberg.org/#3}}}                      {}%
-      \ifthenelse{\equal{#1}{discord}}      {\collectionadd[discord]{socials}      {#3}}                                                           {}%
-      \ifthenelse{\equal{#1}{twitch}}       {\collectionadd[twitch]{socials}       {\protect\httpslink[#3]{twitch.tv/#3}}}                         {}%
-      \ifthenelse{\equal{#1}{youtube}}      {\collectionadd[youtube]{socials}      {\protect\httpslink[#3]{youtube.com/#3}}}                       {}%
-      \ifthenelse{\equal{#1}{tiktok}}       {\collectionadd[tiktok]{socials}       {\protect\httpslink[#3]{tiktok.com/@#3}}}                       {}%
-      \ifthenelse{\equal{#1}{instagram}}    {\collectionadd[instagram]{socials}    {\protect\httpslink[#3]{instagram.com/#3}}}                     {}%
-      \ifthenelse{\equal{#1}{soundcloud}}   {\collectionadd[soundcloud]{socials}   {\protect\httpslink[#3]{soundcloud.com/#3}}}                    {}%
-      \ifthenelse{\equal{#1}{steam}}        {\collectionadd[steam]{socials}        {\protect\httpslink[#3]{steamcommunity.com/id/#3}}}             {}%
-      \ifthenelse{\equal{#1}{xbox}}         {\collectionadd[xbox]{socials}         {\protect\httpslink[#3]{account.xbox.com/profile?gamertag=#3}}} {}%
-      \ifthenelse{\equal{#1}{playstation}}  {\collectionadd[playstation]{socials}  {#3}} {}%
-      \ifthenelse{\equal{#1}{battlenet}}    {\collectionadd[battlenet]{socials}    {#3}} {}%
+      \ifthenelse{\equal{#1}{linkedin}}     {\collectionadd[linkedin]{socialURLs}      {www.linkedin.com/in/#3}
+                                             \collectionadd[linkedin]{socials}         {#3}} {}%
+      \ifthenelse{\equal{#1}{xing}}         {\collectionadd[xing]{socialURLs}          {www.xing.com/profile/#3}
+                                             \collectionadd[xing]{socials}             {#3}} {}%
+      \ifthenelse{\equal{#1}{twitter}}      {\collectionadd[twitter]{socialURLs}       {twitter.com/#3}
+                                             \collectionadd[twitter]{socials}          {#3}} {}%
+      \ifthenelse{\equal{#1}{mastodon}}     {\collectionadd[mastodon]{socialURLs}      {#3}
+                                             \collectionadd[mastodon]{socials}         {#3}} {}%
+      \ifthenelse{\equal{#1}{github}}       {\collectionadd[github]{socialURLs}        {github.com/#3}
+                                             \collectionadd[github]{socials}           {#3}} {}%
+      \ifthenelse{\equal{#1}{gitlab}}       {\collectionadd[gitlab]{socialURLs}        {gitlab.com/#3}
+                                             \collectionadd[gitlab]{socials}           {#3}} {}%
+      \ifthenelse{\equal{#1}{stackoverflow}}{\collectionadd[stackoverflow]{socialURLs} {stackoverflow.com/users/#3}
+                                             \collectionadd[stackoverflow]{socials}    {#3}} {}%
+      \ifthenelse{\equal{#1}{bitbucket}}    {\collectionadd[bitbucket]{socialURLs}     {bitbucket.org/#3}
+                                             \collectionadd[bitbucket]{socials}        {#3}} {}%
+      \ifthenelse{\equal{#1}{skype}}        {\collectionadd[orcid]{socialURLs}         {NOURL}
+                                             \collectionadd[skype]{socials}            {#3}} {}%
+      \ifthenelse{\equal{#1}{orcid}}        {\collectionadd[orcid]{socialURLs}         {orcid.org/#3}
+                                             \collectionadd[orcid]{socials}            {#3}} {}%
+      \ifthenelse{\equal{#1}{researchgate}} {\collectionadd[researchgate]{socialURLs}  {www.researchgate.net/profile/#3}
+                                             \collectionadd[researchgate]{socials}     {#3}} {}%
+      \ifthenelse{\equal{#1}{researcherid}} {\collectionadd[researcherid]{socialURLs}  {www.researcherid.com/rid/#3}
+                                             \collectionadd[researcherid]{socials}     {#3}} {}%
+      \ifthenelse{\equal{#1}{telegram}}     {\collectionadd[telegram]{socialURLs}      {t.me/#3}
+                                             \collectionadd[telegram]{socials}         {#3}} {}%
+      \ifthenelse{\equal{#1}{whatsapp}}     {\collectionadd[whatsapp]{socialURLs}      {wa.me/#3}
+                                             \collectionadd[whatsapp]{socials}         {#3}} {}%
+      \ifthenelse{\equal{#1}{signal}}       {\collectionadd[orcid]{socialURLs}         {NOURL}
+                                             \collectionadd[signal]{socials}           {#3}} {}%
+      \ifthenelse{\equal{#1}{matrix}}       {\collectionadd[matrix]{socialURLs}        {matrix.to/\#/#3}
+                                             \collectionadd[matrix]{socials}           {#3}} {}%
+      \ifthenelse{\equal{#1}{googlescholar}}{\collectionadd[googlescholar]{socialURLs} {scholar.google.com/citations?user=#3}
+                                             \collectionadd[googlescholar]{socials}    {#3}} {}%
+      \ifthenelse{\equal{#1}{codeberg}}     {\collectionadd[codeberg]{socialURLs}      {codeberg.org/#3}
+                                             \collectionadd[codeberg]{socials}         {#3}} {}%
+      \ifthenelse{\equal{#1}{discord}}      {\collectionadd[orcid]{socialURLs}         {NOURL}
+                                             \collectionadd[discord]{socials}          {#3}} {}%
+      \ifthenelse{\equal{#1}{twitch}}       {\collectionadd[twitch]{socialURLs}        {twitch.tv/#3}
+                                             \collectionadd[twitch]{socials}           {#3}} {}%
+      \ifthenelse{\equal{#1}{youtube}}      {\collectionadd[youtube]{socialURLs}       {youtube.com/#3}
+                                             \collectionadd[youtube]{socials}          {#3}} {}%
+      \ifthenelse{\equal{#1}{tiktok}}       {\collectionadd[tiktok]{socialURLs}        {tiktok.com/@#3}
+                                             \collectionadd[tiktok]{socials}           {#3}} {}%
+      \ifthenelse{\equal{#1}{instagram}}    {\collectionadd[instagram]{socialURLs}     {instagram.com/#3}
+                                             \collectionadd[instagram]{socials}        {#3}} {}%
+      \ifthenelse{\equal{#1}{soundcloud}}   {\collectionadd[soundcloud]{socialURLs}    {soundcloud.com/#3}
+                                             \collectionadd[soundcloud]{socials}       {#3}} {}%
+      \ifthenelse{\equal{#1}{steam}}        {\collectionadd[steam]{socialURLs}         {steamcommunity.com/id/#3}
+                                             \collectionadd[steam]{socials}            {#3}} {}%
+      \ifthenelse{\equal{#1}{xbox}}         {\collectionadd[xbox]{socialURLs}          {account.xbox.com/profile?gamertag=#3}
+                                             \collectionadd[xbox]{socials}             {#3}} {}%
+      \ifthenelse{\equal{#1}{playstation}}  {\collectionadd[orcid]{socialURLs}         {NOURL}
+                                             \collectionadd[playstation]{socials}      {#3}} {}%
+      \ifthenelse{\equal{#1}{battlenet}}    {\collectionadd[orcid]{socialURLs}         {NOURL}
+                                             \collectionadd[battlenet]{socials}        {#3}} {}%
       }
-    {\collectionadd[#1]{socials}{\protect\httpslink[#3]{#2}}}}%
+    {\collectionadd[#1]{socialURLs}{#3} \collectionadd[#1]{socials}{#2}}}%
 
 % defines additional personal information (optional)
 % usage: \extrainfo{<text>}
